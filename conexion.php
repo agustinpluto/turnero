@@ -7,6 +7,14 @@
 
       $fila = mysqli_fetch_assoc($resultados);
 
-      echo trim($fila["dni"]);
+
+      if (!$resultados) {
+            die("Error en la consulta: " . mysqli_error($con));
+      }
+
+      while ($fila = mysqli_fetch_assoc($resultados)) {
+            echo $fila["id"] . " " . $fila["nombre"] . " " . $fila["apellido"] . "\n";
+        }
+        
 
 ?>
