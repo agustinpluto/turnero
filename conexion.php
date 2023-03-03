@@ -12,5 +12,5 @@ if (!$resultados) {
 while ($fila = mysqli_fetch_assoc($resultados)) {
     echo $fila["id"] . " " . $fila["nombre"] . " " . $fila["apellido"] . "\n";
 }
-
+ob_end_clean(); 
 ?>
