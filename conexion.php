@@ -20,6 +20,4 @@ if (mysqli_num_rows($resultados) > 0) {
 } else {
     echo "No se encontraron resultados en la base de datos.";
 }
-
-ob_end_clean();
 ?>
