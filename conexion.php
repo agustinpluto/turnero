@@ -15,7 +15,7 @@ if (!$resultados) {
 
 if (mysqli_num_rows($resultados) > 0) {
     while ($fila = mysqli_fetch_assoc($resultados)) {
-        echo $fila["id"] . " " . $fila["nombre"] . " " . $fila["apellido"] . "\n";
+        echo $fila["id"] . " " . $fila["nombre"] . " " . $fila["apellido"] . "<br>";
     }
 } else {
     echo "No se encontraron resultados en la base de datos.";
