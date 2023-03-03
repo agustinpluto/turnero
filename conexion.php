@@ -7,6 +7,6 @@
 
       $fila = mysqli_fetch_assoc($resultados);
 
-      var_dump($fila['dni']);
+      echo $fila['nombre'];
 
 ?>
