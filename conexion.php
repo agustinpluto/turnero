@@ -7,6 +7,6 @@
 
       $fila = mysqli_fetch_assoc($resultados);
 
-      echo $fila[1];
+      echo $fila["nombre"];
 
 ?>
