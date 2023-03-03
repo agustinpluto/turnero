@@ -7,6 +7,6 @@
 
       $fila = mysqli_fetch_assoc($resultados);
 
-      echo $fila["nombre"];
+      var_dump($fila["nombre_de_columna"]);
 
 ?>
