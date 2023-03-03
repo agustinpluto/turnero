@@ -8,14 +8,33 @@
 </head>
 <body>
     
-    <h1>Prueba</h1>
+    <h1>Testing</h1>
     <?php
 
     require "conexion.php";
-
     
     ?>
 
+
+	<h2>Registro de usuario</h2>
+	<form method="POST" action="procesar_registro.php">
+		<label>Nombre:</label>
+		<input type="text" name="nombre"><br><br>
+
+		<label>Apellido:</label>
+		<input type="text" name="apellido"><br><br>
+
+		<label>DNI:</label>
+		<input type="text" name="dni"><br><br>
+
+		<label>Correo electrónico:</label>
+		<input type="email" name="email"><br><br>
+
+		<label>Contraseña:</label>
+		<input type="password" name="password"><br><br>
+
+		<input type="submit" value="Registrarse">
+	</form>
 
 </body>
 </html>l
