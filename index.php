@@ -33,6 +33,9 @@
 		<label>Contraseña:</label>
 		<input type="password" name="password"><br><br>
 
+        <label>Repetir contraseña:</label>
+		<input type="password" name="password"><br><br>
+
 		<input type="submit" value="Registrarse">
 	</form>
 
