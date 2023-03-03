@@ -12,12 +12,13 @@
     <?php
 
     require "conexion.php";
-    
+
+
     ?>
 
 
 	<h2>Registro de usuario</h2>
-	<form method="POST" action="procesar_registro.php">
+	<form method="POST" action="registro.php">
 		<label>Nombre:</label>
 		<input type="text" name="nombre"><br><br>
 
