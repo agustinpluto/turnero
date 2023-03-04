@@ -19,7 +19,7 @@
 		<input type="text" name="apellido"><br><br>
 
 		<label>DNI:</label>
-		<input type="text" name="dni"><br><br>
+		<input type="number" name="dni"><br><br>
 
 		<label>Correo electrónico:</label>
 		<input type="email" name="email"><br><br>
