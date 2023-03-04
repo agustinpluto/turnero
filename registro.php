@@ -1,3 +1,4 @@
+<?php
 $servername = "localhost";
 $username = "agustin";
 $password = "Ireliagod1!";
@@ -29,3 +30,5 @@ if (mysqli_stmt_execute($stmt)) {
 }
 
 mysqli_close($conn);
+
+?>
