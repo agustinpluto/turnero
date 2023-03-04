@@ -13,20 +13,22 @@
 
     $hash = password_hash($password, PASSWORD_BCRYPT);
 
-    if (mysqli_num_rows($resultado) > 0) {
-        
-        echo "El usuario ya existe en la base de datos.";
+    if ($resultado > 0) {
+        echo "Usuario existente-";
     } else {
-        
-        $sql2 = "INSERT INTO usuarios (nombre, apellido, dni, email, password) VALUES ('$nombre', '$apellido', '$dni', '$email', '$hash')";
-
-        if (mysqli_query($con, $sql2)) {
-            echo "El usuario ha sido registrado exitosamente.";
-        } else {
-            echo "Error al registrar el usuario: " . mysqli_error($con);
+        $sql2 = "INSERT INTO usuarios (nombre, apellido, dni, email, contrasena) VALUES (?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($con, $sql2);
+        mysqli_stmt_bind_param($stmt, "sssss", $nombre, $apellido, $dni, $email, $contrasena);
+        if (!$stmt) {
+            die("Error al preparar la consulta: " . mysqli_error($conn));
         }
-    }
-    
+        if (mysqli_stmt_execute($stmt)) {
+            echo "Registro exitoso";
+        } else {
+            echo "Error al registrar el usuario: " . mysqli_error($conn);
+        }
 
+    }
+    mysqli_close($con);
 
 ?>
