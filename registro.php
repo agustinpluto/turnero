@@ -1,34 +1,31 @@
-<?php
+$servername = "localhost";
+$username = "agustin";
+$password = "Ireliagod1!";
+$dbname = "apirest";
 
-    require(conexion.php);
-    
-    $nombre = mysqli_real_escape_string($con, $_POST["nombre"]);
-    $apellido = mysqli_real_escape_string($con, $_POST["apellido"]);
-    $dni = mysqli_real_escape_string($con, $_POST["dni"]);
-    $email = mysqli_real_escape_string($con, $_POST["email"]);
-    $password = mysqli_real_escape_string($con, $_POST["password"]);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+if (!$conn) {
+    die("La conexión a la base de datos falló: " . mysqli_connect_error());
+}
 
-    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
-    $resultado = mysqli_query($con, $sql);
+$sql = "INSERT INTO usuarios (nombre, apellido, dni, email, contrasena) VALUES (?, ?, ?, ?, ?)";
+$stmt = mysqli_prepare($conn, $sql);
+if (!$stmt) {
+    die("Error al preparar la consulta: " . mysqli_error($conn));
+}
 
-    $hash = password_hash($password, PASSWORD_BCRYPT);
+$nombre = $_POST["nombre"];
+$apellido = $_POST["apellido"];
+$dni = $_POST["dni"];
+$email = $_POST["email"];
+$contrasena = $_POST["contrasena"];
 
-    if ($resultado > 0) {
-        echo "Usuario existente-";
-    } else {
-        $sql2 = "INSERT INTO usuarios (nombre, apellido, dni, email, contrasena) VALUES (?, ?, ?, ?, ?)";
-        $stmt = mysqli_prepare($con, $sql2);
-        mysqli_stmt_bind_param($stmt, "sssss", $nombre, $apellido, $dni, $email, $contrasena);
-        if (!$stmt) {
-            die("Error al preparar la consulta: " . mysqli_error($conn));
-        }
-        if (mysqli_stmt_execute($stmt)) {
-            echo "Registro exitoso";
-        } else {
-            echo "Error al registrar el usuario: " . mysqli_error($conn);
-        }
+mysqli_stmt_bind_param($stmt, "sssss", $nombre, $apellido, $dni, $email, $contrasena);
 
-    }
-    mysqli_close($con);
+if (mysqli_stmt_execute($stmt)) {
+    echo "Registro exitoso";
+} else {
+    echo "Error al registrar el usuario: " . mysqli_error($conn);
+}
 
-?>
+mysqli_close($conn);

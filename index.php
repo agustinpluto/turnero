@@ -9,16 +9,9 @@
 <body>
     
     <h1>Testing</h1>
-    <?php
-
-    require "conexion.php";
-
-
-    ?>
-
 
 	<h2>Registro de usuario</h2>
-	<form method="POST" action="registro.php">
+	<form method="POST" action="">
 		<label>Nombre:</label>
 		<input type="text" name="nombre"><br><br>
 
