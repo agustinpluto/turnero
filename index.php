@@ -11,7 +11,7 @@
     <h1>Testing</h1>
 
 	<h2>Registro de usuario</h2>
-	<form method="POST" action="">
+	<form method="POST" action="registro.php">
 		<label>Nombre:</label>
 		<input type="text" name="nombre"><br><br>
 
